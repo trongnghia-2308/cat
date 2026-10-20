@@ -1,0 +1,6 @@
+{
+  "name": "FelisCare - Cẩm Nang Mèo & Tra Cứu Giống",
+  "description": "Cổng thông tin toàn diện về loài mèo: cơ sở dữ liệu giống mèo, tài nguyên cứu trợ & nhận nuôi, cẩm nang chải chuốt và cẩm nang sức khỏe dinh dưỡng.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
