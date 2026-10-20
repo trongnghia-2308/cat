@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Play, BookOpen, Clock, Calendar, Check, ArrowRight, X, Sparkles, Youtube, Scissors, ShieldAlert } from 'lucide-react';
 import { GROOMING_ARTICLES, GROOMING_VIDEO_TUTORIAL, GroomingArticle } from '../data/groomingArticles';
+import { CatImage } from './CatImage';
 
 export const GroomingBlog: React.FC = () => {
   const [selectedArticle, setSelectedArticle] = useState<GroomingArticle | null>(null);
@@ -104,11 +105,10 @@ export const GroomingBlog: React.FC = () => {
             className="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-md transition-all flex flex-col group"
           >
             <div className="relative aspect-[16/10] bg-stone-100 overflow-hidden">
-              <img
+              <CatImage
                 src={article.image}
                 alt={article.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                referrerPolicy="no-referrer"
               />
               <span className="absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-1 bg-stone-900/80 text-white rounded-lg backdrop-blur-sm">
                 {article.category}
@@ -266,11 +266,10 @@ export const GroomingBlog: React.FC = () => {
 
             {/* Featured Image */}
             <div className="my-6 aspect-[16/9] rounded-2xl overflow-hidden bg-stone-100">
-              <img
+              <CatImage
                 src={selectedArticle.image}
                 alt={selectedArticle.title}
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
               />
             </div>
 

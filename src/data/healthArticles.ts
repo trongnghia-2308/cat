@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/catUtils';
+
 export interface HealthArticle {
   id: string;
   title: string;
@@ -55,7 +57,7 @@ export const HEALTH_ARTICLES: HealthArticle[] = [
     publishedDate: '18 Tháng 10, 2026',
     author: 'TS. Bs. Đặng Hải An',
     authorRole: 'Viện Nghiên cứu Thú y & Dinh dưỡng Thú cưng',
-    image: '/images/cat_nutrition_health.jpg',
+    image: getAssetUrl('/images/cat_nutrition_health.jpg'),
     tableOfContents: [
       'Bản chất tiến hóa: Tại sao mèo rất ít khi chủ động uống nước?',
       'So sánh ưu và nhược điểm giữa Pate và Hạt khô',

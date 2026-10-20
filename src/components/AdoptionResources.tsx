@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Clock, Heart, ShieldCheck, CheckCircle2, Send, ExternalLink, Sparkles } from 'lucide-react';
 import { ADOPTABLE_CATS, SHELTER_PARTNERS, ADOPTION_STEPS, AdoptableCat, ShelterPartner } from '../data/adoptionData';
+import { CatImage } from './CatImage';
 
 interface AdoptionResourcesProps {
   onOpenAdoptionFormForCat?: (cat: AdoptableCat) => void;
@@ -118,14 +119,10 @@ export const AdoptionResources: React.FC<AdoptionResourcesProps> = ({ onOpenAdop
               className="bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-md transition-all flex flex-col group"
             >
               <div className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
-                <img
+                <CatImage
                   src={cat.image}
                   alt={cat.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/images/cat_adoption_shelter.jpg';
-                  }}
                 />
                 <span className="absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-1 bg-stone-900/80 text-white rounded-lg backdrop-blur-sm">
                   {cat.status}
@@ -279,11 +276,10 @@ export const AdoptionResources: React.FC<AdoptionResourcesProps> = ({ onOpenAdop
         >
           <div className="bg-white w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-2xl space-y-5">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100">
-              <img
+              <CatImage
                 src={selectedCatForModal.image}
                 alt={selectedCatForModal.name}
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
               />
             </div>
             <div>

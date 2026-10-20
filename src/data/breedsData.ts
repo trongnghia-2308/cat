@@ -1,4 +1,4 @@
-import { Breed } from '../utils/catUtils';
+import { Breed, getAssetUrl } from '../utils/catUtils';
 
 export const CAT_BREEDS: Breed[] = [
   {
@@ -16,7 +16,7 @@ export const CAT_BREEDS: Breed[] = [
     description: 'Giống mèo nổi tiếng thế giới với đôi tai gấp về phía trước độc đáo do đột biến gen tự nhiên. Chúng có khuôn mặt tròn xoe như cú mèo, đôi mắt to tròn long lanh và tính cách ngọt ngào, ít kêu và rất quấn chủ.',
     groomingTips: 'Chải lông 2-3 lần mỗi tuần đối với lông ngắn. Đặc biệt cần kiểm tra vệ sinh kẽ tai cụp hàng tuần bằng dung dịch vệ sinh chuyên dụng để tránh viêm tai.',
     bestFor: 'Căn hộ chung cư, người thích mèo trầm tính, gia đình có trẻ em',
-    image: '/images/cat_scottish_fold.jpg'
+    image: getAssetUrl('/images/cat_scottish_fold.jpg')
   },
   {
     id: 'ragdoll',
@@ -33,7 +33,7 @@ export const CAT_BREEDS: Breed[] = [
     description: 'Được mệnh danh là "chú cún trong thân xác mèo" bởi thói quen chạy ra đón chủ ở cửa và thả lỏng cơ thể hoàn toàn khi được bế trên tay. Ragdoll sở hữu đôi mắt xanh thẳm như đại dương cùng bộ lông bán dài mềm mại tựa như nhung.',
     groomingTips: 'Lông Ragdoll ít bị rối hơn các giống lông dài khác do không có lớp lông lót dày, nhưng vẫn cần chải lông mỗi ngày bằng lược răng thưa bằng kim loại để giữ lông bồng bềnh.',
     bestFor: 'Người nuôi lần đầu, gia đình muốn một chú mèo ấm áp như thú bông',
-    image: '/images/cat_grooming_brush.jpg'
+    image: getAssetUrl('/images/cat_grooming_brush.jpg')
   },
   {
     id: 'british-shorthair',
@@ -67,7 +67,7 @@ export const CAT_BREEDS: Breed[] = [
     description: 'Quý tộc xứ tuyết với bộ lông xám bạc ánh kim lấp lánh và đôi mắt xanh ngọc lục bảo huyền ảo. Mèo Nga nổi tiếng là loài cực kỳ sạch sẽ, ít rụng lông và có tuổi thọ cao.',
     groomingTips: 'Thuộc top các giống mèo ít rụng lông nhất. Chỉ cần chải lông 1 lần/tuần để loại bỏ lông chết và mát-xa tuần hoàn máu dưới da.',
     bestFor: 'Người dễ bị dị ứng nhẹ, không gian yên tĩnh, người yêu sự thanh tao',
-    image: '/images/cat_nutrition_health.jpg'
+    image: getAssetUrl('/images/cat_nutrition_health.jpg')
   },
   {
     id: 'maine-coon',
@@ -101,7 +101,7 @@ export const CAT_BREEDS: Breed[] = [
     description: 'Mang dáng vẻ hoang dã của loài báo rừng nhiệt đới với những đốm hoa mai (rosettes) ánh vàng rực rỡ. Mèo Bengal cực kỳ thông minh, thích leo trèo cao và thậm chí thích tắm nước cùng chủ.',
     groomingTips: 'Lông ngắn và óng ả, rất ít rụng. Chải lông nhẹ 1 lần/tuần bằng lược lông mềm. Cần chuẩn bị nhiều đồ chơi vận động và trụ cào móng cao.',
     bestFor: 'Chủ nuôi năng động, có nhiều thời gian chơi đùa và tương tác',
-    image: 'https://images.unsplash.com/photo-1513360309081-38f0762daed1?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'persian',

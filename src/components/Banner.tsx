@@ -1,6 +1,7 @@
 import React from 'react';
 import { Search, Heart, Sparkles, BookOpen } from 'lucide-react';
 import { TabId } from './Navbar';
+import { getAssetUrl, FALLBACK_CAT_IMAGE } from '../utils/catUtils';
 
 interface BannerProps {
   onNavigate: (tab: TabId) => void;
@@ -13,10 +14,13 @@ export const Banner: React.FC<BannerProps> = ({ onNavigate, onOpenSurvey }) => {
       {/* Background Image with Scrim Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/cat_hero_banner.jpg"
+          src={getAssetUrl('/images/cat_hero_banner.jpg')}
           alt="Mèo tam thể ngồi bên bậu cửa sổ ngập tràn ánh nắng"
           className="w-full h-full object-cover object-center filter brightness-90 transform scale-105 transition-transform duration-1000 ease-out"
           referrerPolicy="no-referrer"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = FALLBACK_CAT_IMAGE;
+          }}
         />
         {/* Measured dark scrim for WCAG AA readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-950/75 to-transparent" />

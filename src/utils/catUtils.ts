@@ -20,6 +20,23 @@ export interface Breed {
   image: string;
 }
 
+export const FALLBACK_CAT_IMAGE = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80';
+
+export const FALLBACK_CAT_SVG = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><rect width="100%" height="100%" fill="%23fef3c7"/><circle cx="300" cy="180" r="75" fill="%23f59e0b"/><polygon points="245,130 260,70 295,115" fill="%23d97706"/><polygon points="355,130 340,70 305,115" fill="%23d97706"/><circle cx="275" cy="170" r="10" fill="%2378350f"/><circle cx="325" cy="170" r="10" fill="%2378350f"/><polygon points="300,190 292,182 308,182" fill="%23b45309"/><path d="M292,198 Q300,206 308,198" stroke="%2378350f" stroke-width="2.5" fill="none"/><text x="300" y="300" font-family="sans-serif" font-size="22" font-weight="600" fill="%2392400e" text-anchor="middle">FelisCare</text></svg>`;
+
+/**
+ * Resolves local image URLs against the Vite BASE_URL (e.g. ./ or /cat/ or / locally)
+ */
+export function getAssetUrl(path: string): string {
+  if (!path || path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+    return path;
+  }
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const base = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL) || './';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  return `${cleanBase}${cleanPath}`;
+}
+
 export interface ToxicCheckResult {
   isToxic: boolean;
   severity: 'safe' | 'caution' | 'dangerous' | 'lethal';

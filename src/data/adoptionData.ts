@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/catUtils';
+
 export interface AdoptableCat {
   id: string;
   name: string;
@@ -48,7 +50,7 @@ export const ADOPTABLE_CATS: AdoptableCat[] = [
     },
     rescueStory: 'Được cứu hộ trong một ngày mưa bão tại hẻm nhỏ Hoàng Hoa Thám khi còn là mèo con bị ướt sũng. Nay bé đã phục hồi sức khỏe hoàn hảo, lông óng mượt và thích rúc vào lòng bạn khi đọc sách.',
     shelterLocation: 'Trạm Cứu Hộ Động Vật Hà Nội (CS Hoàng Hoa Thám)',
-    image: '/images/cat_adoption_shelter.jpg',
+    image: getAssetUrl('/images/cat_adoption_shelter.jpg'),
     status: 'Sẵn sàng tìm nhà'
   },
   {

@@ -6,6 +6,7 @@ import { CAT_BREEDS } from '../data/breedsData';
 import { ADOPTABLE_CATS } from '../data/adoptionData';
 import { GROOMING_ARTICLES } from '../data/groomingArticles';
 import { HEALTH_ARTICLES } from '../data/healthArticles';
+import { CatImage } from './CatImage';
 
 interface HomeOverviewProps {
   onNavigate: (tab: TabId) => void;
@@ -125,14 +126,10 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({ onNavigate, onOpenSu
               className="group bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-md transition-all cursor-pointer flex flex-col"
             >
               <div className="aspect-[4/3] bg-stone-100 overflow-hidden">
-                <img
+                <CatImage
                   src={breed.image}
                   alt={breed.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80';
-                  }}
                 />
               </div>
               <div className="p-5 flex-1 flex flex-col justify-between">
@@ -162,14 +159,10 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({ onNavigate, onOpenSu
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-amber-900/90 text-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-lg flex flex-col lg:flex-row items-center gap-8">
           <div className="w-full lg:w-1/2 aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
-            <img
+            <CatImage
               src={featuredRescueCat.image}
               alt={featuredRescueCat.name}
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?auto=format&fit=crop&w=800&q=80';
-              }}
             />
           </div>
           <div className="w-full lg:w-1/2 space-y-4">

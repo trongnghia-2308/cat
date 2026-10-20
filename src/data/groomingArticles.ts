@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/catUtils';
+
 export interface GroomingArticle {
   id: string;
   title: string;
@@ -43,7 +45,7 @@ export const GROOMING_ARTICLES: GroomingArticle[] = [
     publishedDate: '15 Tháng 10, 2026',
     author: 'Bs. Mai Thảo Vy',
     authorRole: 'Chuyên gia Chăm sóc Thú cưng & Hành vi Feline',
-    image: '/images/cat_grooming_brush.jpg',
+    image: getAssetUrl('/images/cat_grooming_brush.jpg'),
     tableOfContents: [
       'Tại sao việc chải lông định kỳ lại sống còn đối với mèo?',
       'Phân loại dụng cụ chải lông theo độ dài lông',

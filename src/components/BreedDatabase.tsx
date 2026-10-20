@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Search, SlidersHorizontal, Info, X, Sparkles, Check, ArrowRight } from 'lucide-react';
 import { CAT_BREEDS } from '../data/breedsData';
 import { filterBreeds, Breed } from '../utils/catUtils';
+import { CatImage } from './CatImage';
 
 interface BreedDatabaseProps {
   onSelectBreedForGrooming?: (breed: Breed) => void;
@@ -161,16 +162,10 @@ export const BreedDatabase: React.FC<BreedDatabaseProps> = ({ onSelectBreedForGr
               >
                 {/* Image Container with Fallback */}
                 <div className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
-                  <img
+                  <CatImage
                     src={breed.image}
                     alt={`Giống mèo ${breed.name} - ${breed.vietnameseName}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      // Fallback if external fails
-                      (e.target as HTMLImageElement).src = '/images/cat_scottish_fold.jpg';
-                    }}
                   />
                   <div className="absolute top-3 right-3 flex items-center gap-1.5">
                     <button
@@ -255,11 +250,10 @@ export const BreedDatabase: React.FC<BreedDatabaseProps> = ({ onSelectBreedForGr
         >
           <div className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border border-stone-200">
             <div className="relative aspect-[16/9] bg-stone-100">
-              <img
+              <CatImage
                 src={selectedBreed.image}
                 alt={selectedBreed.name}
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
               />
               <button
                 onClick={() => setSelectedBreed(null)}
@@ -351,7 +345,7 @@ export const BreedDatabase: React.FC<BreedDatabaseProps> = ({ onSelectBreedForGr
               {comparisonBreeds.map((b) => (
                 <div key={b.id} className="space-y-4">
                   <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100">
-                    <img src={b.image} alt={b.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                    <CatImage src={b.image} alt={b.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h4 className="text-xl font-bold font-serif text-stone-900">{b.name}</h4>

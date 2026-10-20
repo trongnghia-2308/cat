@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FALLBACK_CAT_IMAGE, FALLBACK_CAT_SVG, getAssetUrl } from '../utils/catUtils';
 
 interface CatImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrc?: string;
@@ -9,23 +10,25 @@ export const CatImage: React.FC<CatImageProps> = ({
   src,
   alt = 'Ảnh mèo FelisCare',
   className = '',
-  fallbackSrc = '/images/cat_hero_banner.jpg',
+  fallbackSrc = getAssetUrl('/images/cat_hero_banner.jpg'),
   catName,
   ...props
 }) => {
+  const [currentSrc, setCurrentSrc] = useState<string>(src || fallbackSrc);
   const [errorCount, setErrorCount] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  // Default backup feline photography from reliable public CDN if local /images doesn't load
-  const backupFallback = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80';
-
-  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    if (errorCount === 0 && fallbackSrc && src !== fallbackSrc) {
+  const handleError = () => {
+    setLoaded(true); // Always reveal image on error so UI does not stay stuck in grey pulsing state
+    if (errorCount === 0) {
       setErrorCount(1);
-      (e.target as HTMLImageElement).src = fallbackSrc;
+      setCurrentSrc(fallbackSrc);
     } else if (errorCount === 1) {
       setErrorCount(2);
-      (e.target as HTMLImageElement).src = backupFallback;
+      setCurrentSrc(FALLBACK_CAT_IMAGE);
+    } else {
+      setErrorCount(3);
+      setCurrentSrc(FALLBACK_CAT_SVG);
     }
   };
 
@@ -39,7 +42,7 @@ export const CatImage: React.FC<CatImageProps> = ({
         </div>
       )}
       <img
-        src={src}
+        src={currentSrc}
         alt={alt}
         className={`${className} ${loaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
         loading="lazy"
