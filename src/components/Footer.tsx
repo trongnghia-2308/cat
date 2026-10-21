@@ -1,6 +1,7 @@
 import React from 'react';
 import { TabId } from './Navbar';
 import { ExternalLink, Heart, Shield, Sparkles } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 interface FooterProps {
   onNavigate: (tab: TabId) => void;
@@ -15,10 +16,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenSurvey }) => {
           {/* Col 1: Brand & Purpose */}
           <div className="md:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-amber-600 flex items-center justify-center text-white">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C8.5 2 5.5 4 4.5 7.5L2 6l1 5c-1 1.5-1 3.5 0 5 1.5 2.5 5 4 9 4s7.5-1.5 9-4c1-1.5 1-3.5 0-5l1-5-2.5 1.5C18.5 4 15.5 2 12 2zm-3.5 9a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-3.5 3c1 0 2 .5 2 1s-1 1.5-2 1.5-2-1-2-1.5 1-1 2-1z" />
-                </svg>
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-amber-100 border border-amber-500/30 flex items-center justify-center">
+                <img
+                  src={logoImg}
+                  alt="Logo FelisCare"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-xl font-bold font-serif text-white tracking-tight">
                 FelisCare

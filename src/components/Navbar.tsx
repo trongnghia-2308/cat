@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Heart, Sparkles } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 export type TabId = 'home' | 'breeds' | 'adoption' | 'grooming' | 'health';
 
@@ -36,11 +37,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onOpenSu
             className="flex items-center gap-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg group shrink-0"
             aria-label="FelisCare Trang chủ"
           >
-            <div className="w-10 h-10 rounded-xl bg-amber-600 flex items-center justify-center text-white shadow-sm group-hover:bg-amber-700 transition-colors">
-              {/* Bespoke Cat Face SVG Logo */}
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.5 2 5.5 4 4.5 7.5L2 6l1 5c-1 1.5-1 3.5 0 5 1.5 2.5 5 4 9 4s7.5-1.5 9-4c1-1.5 1-3.5 0-5l1-5-2.5 1.5C18.5 4 15.5 2 12 2zm-3.5 9a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-3.5 3c1 0 2 .5 2 1s-1 1.5-2 1.5-2-1-2-1.5 1-1 2-1z" />
-              </svg>
+            <div className="w-11 h-11 rounded-2xl overflow-hidden shadow-sm border border-amber-200/70 group-hover:scale-105 transition-transform bg-amber-100 flex items-center justify-center">
+              <img
+                src={logoImg}
+                alt="Logo FelisCare"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight text-stone-900 font-serif">
